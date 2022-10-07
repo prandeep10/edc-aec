@@ -8,12 +8,13 @@
     display: flex;
     align-items: center;
     overflow-x: hidden;
+    padding-bottom: 20px;
 }
 
 .animated-car {width: 270px; height: 127px;
-    background-image: url(ANIMATION/car.png);
+    background-image: url(ANIMATION/car-initial.png);
     animation: gangham 4s steps(23,start),
-    movearound 20s steps(2000,end) infinite alternate 44ms;
+    movearound 50s steps(2000,end) infinite alternate 44ms;
     animation-direction: normal;
     align-self: flex-end;
     overflow-x: hidden;
@@ -24,8 +25,146 @@
     100% {transform: translatex(3480px);}
   }
 
+
+
+
+
+.lamb {width: 306px; height: 84px;
+    background-image: url(ANIMATION/lamb.png);
+    animation: lamb 4s steps(23,start),
+    lamb 30s steps(2000,end) infinite alternate 40ms;
+    animation-direction: normal;
+    align-self: flex-end;
+    overflow-x: hidden;
+  }
+
+  @keyframes lamb {
+    0% {transform: translatex(0px)}
+    100% {transform: translatex(6480px);}
+  }
+
  
   
   
+
+  @media (max-width: 780px) {
+
+
+    #hero-image{
+      display: none;
+    }
+
+}
   
-  
+
+
+
+
+.man{
+  background: url(ANIMATION/man.gif) no-repeat center center;
+  background-image: url(ANIMATION/man.gif);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 100%;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  width: 88px;
+  height: 100px;
+  background-size: 100%;
+  bottom: 30px;
+  left: 0;
+  position: absolute;
+  -webkit-animation: myfirst 30s linear infinite;
+  animation: myfirst 30s linear infinite;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: myfirst;
+}
+
+@keyframes myfirst {
+  0% {transform: translatex(0px)}
+  100% {transform: translatex(1080px);}
+}
+
+
+
+
+.helicopter{
+  background: url(ANIMATION/helicopter.gif) no-repeat center center;
+  background-image: url(ANIMATION/helicopter.gif);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 100%;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  width: 188px;
+  height: 200px;
+  background-size: 100%;
+  bottom: 500px;
+  left: 0;
+  position: absolute;
+  -webkit-animation: helicopter 20s linear infinite;
+  animation: helicopter 30s linear infinite;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: helicopter;
+}
+
+@keyframes helicopter {
+  0% {transform: translatex(2280px)}
+  100% {transform: translatex(0);}
+}
+
+
+.helicopter1{
+  background: url(ANIMATION/helicopter1.gif) no-repeat center center;
+  background-image: url(ANIMATION/helicopter1.gif);
+  background-position-x: center;
+  background-position-y: center;
+  background-size: 100%;
+  background-repeat-x: no-repeat;
+  background-repeat-y: no-repeat;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  width: 188px;
+  height: 200px;
+  background-size: 100%;
+  bottom: 500px;
+  left: 0;
+  position: absolute;
+  -webkit-animation: helicopter1 30s linear infinite;
+  animation: helicopter1 30s linear infinite;
+  animation-duration: 50s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: helicopter1;
+}
+
+@keyframes helicopter1 {
+  0% {transform: translatex(6080px)}
+  100% {transform: translatex(0);}
+}

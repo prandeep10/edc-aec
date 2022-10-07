@@ -12,7 +12,7 @@
 }
 
 .animated-car {width: 270px; height: 127px;
-    background-image: url(ANIMATION/car-initial.png);
+    background-image: url(ANIMATION/car.png);
     animation: gangham 4s steps(23,start),
     movearound 50s steps(2000,end) infinite alternate 44ms;
     animation-direction: normal;

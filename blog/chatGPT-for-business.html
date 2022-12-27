@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <title>Home</title>
 </head>
 <script src="https://kit.fontawesome.com/2e31d9f971.js" crossorigin="anonymous"></script>
@@ -17,17 +18,15 @@
     </a>
   </h1>
   <nav
-    class="hidden text-gray-400 bg-gray-900 absolute sm:relative top-0 left-0 right-0 bottom-0 grid sm:block place-items-center text-center sm:text-left z-10"
+    class="hidden text-gray-400 bg-gray-900 absolute sm:relative top-0 left-0 right-0 bottom-0 grid sm:block place-items-center text-center sm:text-left"
     id="navbar">
     <ul>
       <li class="block sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./index.html">Home</a></li>
       <li class="block sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./about.html">About</a></li>
       <li class="block sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./contact.html">Contact</a></li>
       <li class="block sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./blog.html">Blog</a></li>
-      <li class="block sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./services.html">Services</a>
-      </li>
-      <li class="blcok sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a
-          href="./merchandise.html">Merchandise</a>
+      <li class="block sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./services.html">Services</a></li>
+      <li class="blcok sm:inline-block sm:ml-4 my-4 sm:my-0 hover:text-white"><a href="./merchandise.html">Merchandise</a>
       </li>
     </ul>
   </nav>
@@ -43,66 +42,44 @@
 
 
 
+  <!-- About Us-->
 
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-4">
+  <section class="text-gray-400 bg-white body-font">
+    <div class="container px-9 py-40 mx-auto">
+      <div class="mx-auto text-center flex flex-col justify-items-center">
 
-        <div class="p-4 md:w-1/3">
-          <div class="h-full rounded-xl shadow-cla-pink bg-gradient-to-r from-fuchsia-50 to-pink-50 overflow-hidden">
-            <img
-              class="lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 z-1"
-              src="2.0.jpg" alt="blog">
-            <div class="p-6">
-              <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">Weekly-Blog</h2>
-              <h1 class="title-font text-lg font-medium text-gray-600 mb-3">Twitter2.0</h1>
-              <p class="leading-relaxed mb-3">Elon Musk shares his plans for turning Twitter into an "everything app."
-              </p>
-              <div class="flex items-center flex-wrap ">
+        <h1 class="title-font sm:text-3xl text-3xl mb-4 font-medium text-gray-600 pb-5">Using ChatGPT For Business
+        </h1>
 
-                <a href="blog1.html" target="_blank">
-                  <button
-                    class="bg-gradient-to-r from-indigo-600 to-yellow-400 hover:scale-105  shadow-cla-blue px-4 py-1 rounded-lg text-white">
-                    Read
-                    More</button>
-                </a>
+        <img src="openai.png" alt="" height="400px"
+        width="600px" class="self-center pb-5">
 
-
-              </div>
-            </div>
-          </div>
-        </div>
+        <p class="leading-relaxed text-gray-500 text-lg pb-5 text-left">
+        
+          
+            ChatGPT is a variant of the popular GPT-3 language model developed by OpenAI. It is designed to generate human-like text in a chatbot format, making it an ideal tool for businesses looking to improve customer service and support.
+            <br class="break-all">
+            One way businesses can use ChatGPT is to implement it as a chatbot on their website or app. This can allow customers to get quick and accurate answers to their questions without the need for a human representative to be available at all times.
+            <br class="break-all">
+            Another way businesses can use ChatGPT is to train it on specific topic areas related to their business. For example, a retail store could train ChatGPT on product information, pricing, and shipping policies, allowing it to assist customers with inquiries related to these topics.
+            <br class="break-all">
+            Businesses can also use ChatGPT to generate personalized responses to customer inquiries. By training the model on customer data, businesses can use ChatGPT to generate personalized recommendations and responses based on a customer's previous interactions with the business.
+            <br class="break-all">
+            Overall, ChatGPT offers a powerful tool for businesses looking to improve customer service and support. Its ability to generate human-like text in a chatbot format makes it an ideal solution for businesses looking to improve their customer experience and increase customer satisfaction.
+  
+        </p>     
 
 
-
-
-        <div class="p-4 md:w-1/3">
-          <div class="h-full rounded-xl shadow-cla-pink bg-gradient-to-r from-fuchsia-50 to-pink-50 overflow-hidden">
-            <img
-              class="lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100 z-1"
-              src="2.0.jpg" alt="blog">
-            <div class="p-6">
-              <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">Weekly-Blog</h2>
-              <h1 class="title-font text-lg font-medium text-gray-600 mb-3">ChatGPT For Business</h1>
-              <p class="leading-relaxed mb-3"> ChatGPT is a variant of the popular GPT-3 language model developed by OpenAI. 
-              </p>
-              <div class="flex items-center flex-wrap ">
-
-                <a href="chatGPT-for-business.html" target="_blank">
-                  <button
-                    class="bg-gradient-to-r from-indigo-600 to-yellow-400 hover:scale-105  shadow-cla-blue px-4 py-1 rounded-lg text-white">
-                    Read
-                    More</button>
-                </a>
-
-
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
+
+
+
+
+
+
+
 
 
   <!-- FOOTER -->
@@ -113,16 +90,16 @@
           <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">About</h2>
           <nav class="list-none mb-10">
             <li>
-              <a href="./about.html#team" class="text-gray-400 hover:text-white">Team Members</a>
+              <a href="about.html#team" class="text-gray-400 hover:text-white">Team Members</a>
             </li>
             <li>
-              <a href="./about.html#events" class="text-gray-400 hover:text-white">Events</a>
+              <a href="about.html#events" class="text-gray-400 hover:text-white">Events</a>
             </li>
             <li>
-              <a href="./about.html#gallery" class="text-gray-400 hover:text-white">Gallery</a>
+              <a href="about.html#gallery" class="text-gray-400 hover:text-white">Gallery</a>
             </li>
             <li>
-              <a href="./about.html#alumni" class="text-gray-400 hover:text-white">AEC Startups</a>
+              <a href="about.html#alumni" class="text-gray-400 hover:text-white">AEC Startups</a>
             </li>
           </nav>
         </div>
@@ -130,15 +107,15 @@
           <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Contact</h2>
           <nav class="list-none mb-10">
             <li>
-              <a href="./https://docs.google.com/forms/d/e/1FAIpQLSc-J3eFUsVwnqEsttCkBoc6zi2akD3Xp4LIhMn-PmjyqLkqWQ/viewform?usp=sf_link"
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-J3eFUsVwnqEsttCkBoc6zi2akD3Xp4LIhMn-PmjyqLkqWQ/viewform?usp=sf_link"
                 class="text-gray-400 hover:text-white" target="_blank">Contact Outreach Team</a>
             </li>
             <li>
-              <a href="./https://docs.google.com/forms/d/e/1FAIpQLSc-J3eFUsVwnqEsttCkBoc6zi2akD3Xp4LIhMn-PmjyqLkqWQ/viewform?usp=sf_link"
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-J3eFUsVwnqEsttCkBoc6zi2akD3Xp4LIhMn-PmjyqLkqWQ/viewform?usp=sf_link"
                 class="text-gray-400 hover:text-white" target="_blank">Get Sponsored</a>
             </li>
             <li>
-              <a href="./https://docs.google.com/forms/d/e/1FAIpQLSc-J3eFUsVwnqEsttCkBoc6zi2akD3Xp4LIhMn-PmjyqLkqWQ/viewform?usp=sf_link"
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSc-J3eFUsVwnqEsttCkBoc6zi2akD3Xp4LIhMn-PmjyqLkqWQ/viewform?usp=sf_link"
                 class="text-gray-400 hover:text-white" target="_blank">Give Feedback</a>
             </li>
             <li>
@@ -150,11 +127,11 @@
           <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">Blog</h2>
           <nav class="list-none mb-10">
             <li>
-              <a href="blog1.html" class="text-gray-400 hover:text-white">Click Here</a>
+              <a class="text-gray-400 hover:text-white">Coming Soon</a>
             </li>
             <!-- <li>
-            <a class="text-gray-400 hover:text-white"></a>
-          </li> -->
+              <a class="text-gray-400 hover:text-white"></a>
+            </li> -->
           </nav>
         </div>
         <form class="lg:w-1/4 md:w-1/2 w-full px-4" action="https://formspree.io/f/xrgdkbzg" method="POST">
@@ -183,7 +160,7 @@
     <div class="bg-gray-900 bg-opacity-75">
       <div class="container px-5 py-2 mx-auto flex items-center sm:flex-row flex-col">
         <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
-          <img src="./LOGO_TRANSPARENT.png" height="100px" width="100px" alt="">
+          <img src="../LOGO_TRANSPARENT.png" height="100px" width="100px" alt="">
         </a>
         <p class="text-sm text-gray-400 sm:ml-6 sm:mt-0 mt-4">© 2022 EDC-AEC —
           <a href="https://www.instagram.com/edc_aec/" class="text-gray-500 ml-1" target="_blank"
@@ -221,7 +198,6 @@
 
 
 
-
   <!-- JAVASCRIPT FOR NAVBAR -->
   <script>
     const toggleButton = document.getElementById('toggle-button');
@@ -240,6 +216,15 @@
     })
 
   </script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({});
+  </script>
+
+
+
+
 </body>
 
 </html>

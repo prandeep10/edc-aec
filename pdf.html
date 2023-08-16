@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF.js Reader</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js" integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#pdfContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+canvas {
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:first-child {
+    margin-left: 0;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+
+.controls{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+</style>
+  </head>
+<body>
+
+  <h1 style="text-align:center;margin-bottom:0">ENIGMA 2023</h1>
+  <p style="text-align: center; font-size:12px"> Entreprenuership Development Cell, Assam Engineering College</p>
+
+  <div id="pdfContainer"></div>
+  <div class="controls">
+    <button id="prevButton">Previous</button>
+    <button id="nextButton">Next</button>
+  </div>
+
+
+
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.worker.min.js';
+        const pdfUrl = 'efh.pdf';
+        const container = document.getElementById('pdfContainer');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        let currentPageNumber = 1;
+        let pdfDocument = null;
+
+        async function loadPDF() {
+            const loadingTask = pdfjsLib.getDocument(pdfUrl);
+            pdfDocument = await loadingTask.promise;
+            renderPage(currentPageNumber);
+        }
+
+        function renderPage(pageNumber) {
+            pdfDocument.getPage(pageNumber).then(page => {
+                const viewport = page.getViewport({ scale: 1.0 });
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                container.innerHTML = '';
+                container.appendChild(canvas);
+
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport,
+                };
+
+                page.render(renderContext);
+            });
+        }
+
+        function goToPreviousPage() {
+            if (currentPageNumber > 1) {
+                currentPageNumber--;
+                renderPage(currentPageNumber);
+            }
+        }
+
+        function goToNextPage() {
+            if (currentPageNumber < pdfDocument.numPages) {
+                currentPageNumber++;
+                renderPage(currentPageNumber);
+            }
+        }
+
+        prevButton.addEventListener('click', goToPreviousPage);
+        nextButton.addEventListener('click', goToNextPage);
+
+
+        let currentScale = 1.0;
+        const maxScale = 3.0;
+        const minScale = 0.5;
+        const scaleStep = 0.1;
+
+        // Double-tap event handler for zooming
+        let lastTapTime = 0;
+        container.addEventListener('click', function(event) {
+            const currentTime = new Date().getTime();
+            const tapTimeDiff = currentTime - lastTapTime;
+            if (tapTimeDiff < 300) { // Check for double-tap (within 300ms)
+                toggleZoom();
+            }
+            lastTapTime = currentTime;
+        });
+
+        function toggleZoom() {
+            if (currentScale === 1.0) {
+                zoomIn();
+            } else {
+                resetZoom();
+            }
+        }
+
+        function zoomIn() {
+            if (currentScale < maxScale) {
+                currentScale += scaleStep;
+                applyScale();
+            }
+        }
+
+        function zoomOut() {
+            if (currentScale > minScale) {
+                currentScale -= scaleStep;
+                applyScale();
+            }
+        }
+
+        function resetZoom() {
+            currentScale = 1.0;
+            applyScale();
+        }
+
+        function applyScale() {
+            canvas.style.transform = `scale(${currentScale})`;
+        }
+        loadPDF();
+    </script>
+</body>
+</html>

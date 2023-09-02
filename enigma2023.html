@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        /* Base styles for the viewer container */
+        #pdf-container {
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background: #505050;
+        }
+
+        /* Styles for buttons */
+        button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Responsive styles for smaller screens */
+        @media (max-width: 768px) {
+            #pdf-container {
+                height: 100vh;
+                width: 70vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf-container"></div>
+
+    <div class="buttons">
+
+        <button id="prev-button">Previous</button>
+        <button id="next-button">Next</button>
+        <button id="zoom-in-button">Zoom In</button>
+        <button id="zoom-out-button">Zoom Out</button>
+
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+        // Define variables
+        const pdfContainer = document.getElementById('pdf-container');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const zoomInButton = document.getElementById('zoom-in-button');
+        const zoomOutButton = document.getElementById('zoom-out-button');
+        let pdfInstance = null;
+        let currentPage = 1;
+        let totalPages = 0;
+        let zoomLevel = 1.0;
+
+        // Function to render the PDF
+        async function renderPage(pageNumber) {
+            const page = await pdfInstance.getPage(pageNumber);
+            const viewport = page.getViewport({ scale: zoomLevel });
+
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport,
+            };
+
+            await page.render(renderContext);
+            pdfContainer.innerHTML = '';
+            pdfContainer.appendChild(canvas);
+        }
+
+        // Function to load and display the PDF
+        async function loadPDF(pdfURL) {
+            const loadingTask = pdfjsLib.getDocument(pdfURL);
+            pdfInstance = await loadingTask.promise;
+            totalPages = pdfInstance.numPages;
+            renderPage(currentPage);
+        }
+
+        // Load the PDF when the page loads
+        loadPDF('enigma2023.pdf');
+
+        // Event listeners for Next and Previous buttons
+        nextButton.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPage(currentPage);
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPage(currentPage);
+            }
+        });
+
+        // Event listeners for Zoom In and Zoom Out buttons
+        zoomInButton.addEventListener('click', () => {
+            zoomLevel += 0.1;
+            renderPage(currentPage);
+        });
+
+        zoomOutButton.addEventListener('click', () => {
+            if (zoomLevel > 0.2) {
+                zoomLevel -= 0.1;
+                renderPage(currentPage);
+            }
+        });
+    </script>
+</body>
+</html>
